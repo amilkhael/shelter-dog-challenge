@@ -10,7 +10,7 @@ const customConfig = {
   preset: "ts-jest",
   transform: {},
   testMatch: [
-    "<rootDir>/__tests__/**/*.test.{ts,tsx}",
+    "<rootDir>/api/**/*.test.{ts,tsx}",
     "<rootDir>/components/**/*.test.{ts,tsx}",
   ],
   coverageThreshold: {
