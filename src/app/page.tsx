@@ -1,18 +1,36 @@
 "use client"
+
 import Button from "@mui/material/Button"
 import TextField from "@mui/material/TextField"
 import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
+import { useLogin } from "@hooks/Session/useLogIn"
+import { User } from "@api/login/User.type"
+import { useRouter } from "next/navigation"
+import { useEffect } from "react"
 
 export default function LogIn() {
+  const { mutate: login, isSuccess } = useLogin()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (isSuccess) {
+      router.push("dashboard")
+    }
+  }, [isSuccess])
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get("email"),
-      name: data.get("name"),
-    })
+    if (data) {
+      const user: User = {
+        email: data.get("email")?.toString(),
+        name: data.get("name")?.toString(),
+      }
+
+      login(user)
+    }
   }
 
   return (

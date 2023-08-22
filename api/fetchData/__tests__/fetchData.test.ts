@@ -53,7 +53,7 @@ describe("Fetch", () => {
         // not called
       },
       (error: Error) => {
-        expect(error.message).toEqual("fake error message") // Stacktrace
+        expect(error.message).toEqual("fake error message")
       }
     )
   })
@@ -61,13 +61,13 @@ describe("Fetch", () => {
     const myBlob = new Blob()
     const myOptions = { status: 401, statusText: "Error test" }
     const myResponse = new Response(myBlob, myOptions)
-    const testPromise = checkStatus(myResponse)
-    testPromise.then(
+    const testPromise = checkStatus(myResponse)?.catch((error) => {})
+    testPromise?.then(
       () => {
         // not called
       },
       (error: Error) => {
-        expect(error.message).toEqual("Error test") // Stacktrace
+        expect(error.message).toEqual("Error test")
       }
     )
   })

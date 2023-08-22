@@ -2,6 +2,10 @@ import { API_URL } from "@api/constants"
 import { login } from "../login"
 
 describe("Login", () => {
+  beforeEach(() => {
+    fetchMock.resetMocks()
+  })
+
   it("send user data", () => {
     fetchMock.mockResponseOnce(JSON.stringify({ data: "12345" }))
     const testUser = {
