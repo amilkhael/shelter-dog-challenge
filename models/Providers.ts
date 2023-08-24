@@ -1,3 +1,4 @@
 export enum Provider {
   SHELTER_LOGIN = "SHELTER_LOGIN",
+  SHELTER_DASHBOARD = "SHELTER_DASHBOARD",
 }

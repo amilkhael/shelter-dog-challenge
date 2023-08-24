@@ -2,15 +2,6 @@ import { API_URL } from "../constants"
 import { RequestInterface } from "./RequestInterface.interface"
 import { HttpRequestType } from "./HttpRequestType.type"
 
-export const checkStatus = <T>(response: Response): Promise<T> | undefined => {
-  if (response.ok) {
-    if (response.headers.get("content-type") !== "text/plain; charset=utf-8")
-      return response.json() as Promise<T>
-  } else {
-    return Promise.reject(new Error(response.statusText))
-  }
-}
-
 export const request = async <T>({
   method,
   endpoint,
@@ -33,7 +24,15 @@ export const request = async <T>({
   }
 
   return await fetch(url, requestOptions)
-    .then(checkStatus<T>)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(response.statusText)
+      }
+      return response.json() as Promise<T>
+    })
+    .then((data) => {
+      return data
+    })
     .catch((error) => console.log("There was a problem!", error))
 }
 

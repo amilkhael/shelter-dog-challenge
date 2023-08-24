@@ -1,5 +1,5 @@
 import { API_URL } from "@api/constants"
-import { Post, checkStatus, Get } from "../fetchData"
+import { Post, Get } from "../fetchData"
 import fetchMock from "jest-fetch-mock"
 
 describe("Fetch", () => {
@@ -54,20 +54,6 @@ describe("Fetch", () => {
       },
       (error: Error) => {
         expect(error.message).toEqual("fake error message")
-      }
-    )
-  })
-  it("returns a rejected promise when error happened", () => {
-    const myBlob = new Blob()
-    const myOptions = { status: 401, statusText: "Error test" }
-    const myResponse = new Response(myBlob, myOptions)
-    const testPromise = checkStatus(myResponse)?.catch((error) => {})
-    testPromise?.then(
-      () => {
-        // not called
-      },
-      (error: Error) => {
-        expect(error.message).toEqual("Error test")
       }
     )
   })
