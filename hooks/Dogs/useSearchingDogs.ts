@@ -8,9 +8,12 @@ import { Dog } from "@api/fetchDogsInformation/DogInterface.interface"
 
 const getDataDogsInformation = async ({
   resultIds,
+  total,
 }: {
   resultIds: string[]
-}): Promise<Dog[]> => await fetchDogsInformation(resultIds).then((data) => data)
+  total: number
+}): Promise<{ dogs: Dog[]; total: number }> =>
+  await fetchDogsInformation(resultIds).then((data) => ({ dogs: data, total }))
 
 export const useSearchingDogs = (
   enabled = false,

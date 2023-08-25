@@ -4,7 +4,7 @@ import { Dog } from "@api/fetchDogsInformation/DogInterface.interface"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 
-const DogCard = ({ img, breed, name, zip_code: zipCode }: Dog): JSX.Element => (
+const DogCard = ({ img, breed, name, zip_code: zipCode, age }: Dog): JSX.Element => (
   <Card sx={{ maxWidth: 345 }}>
     <CardMedia component='img' sx={{ height: 250 }} image={img} alt={breed} />
     <CardContent>
@@ -12,6 +12,12 @@ const DogCard = ({ img, breed, name, zip_code: zipCode }: Dog): JSX.Element => (
         Name:{" "}
         <Typography variant='body2' color='text.secondary' component={"span"}>
           {name}
+        </Typography>
+      </Typography>
+      <Typography variant='body1' color='text.primary'>
+        Age:{" "}
+        <Typography variant='body2' color='text.secondary' component={"span"}>
+          {age}
         </Typography>
       </Typography>
       <Typography variant='body1' color='text.primary'>
