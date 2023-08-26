@@ -29,9 +29,7 @@ describe("Fetch", () => {
 
     Get<TestRequest>({
       endpoint: "/test",
-      params: {
-        foo: "value",
-      },
+      params: "?foo=value",
     }).then((data) => data && expect(data).toEqual({ data: "12345" }))
 
     expect(fetchMock.mock.calls.length).toEqual(1)

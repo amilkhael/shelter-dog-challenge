@@ -8,9 +8,7 @@ export const request = async <T>({
   params,
   data,
 }: RequestInterface): Promise<void | T> => {
-  const url = params
-    ? `${API_URL}${endpoint}?${new URLSearchParams(params)}`
-    : `${API_URL}${endpoint}`
+  const url = params ? `${API_URL}${endpoint}${params}` : `${API_URL}${endpoint}`
   const requestOptions: RequestInit = {
     method,
     credentials: "include",
