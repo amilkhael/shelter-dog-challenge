@@ -1,9 +1,11 @@
 import { SyntheticEvent } from "react"
 import TextField from "@mui/material/TextField"
 import Autocomplete from "@mui/material/Autocomplete"
+import { useFetchDogBreeds } from "@hooks/Dogs/useFetchDogBreeds"
 
 const BreedFilter = ({ setCurrentBreed }: { setCurrentBreed: Function }): JSX.Element => {
-  const options = ["Chihuahua", "Silky Terrier", "Doberman"]
+  const { data } = useFetchDogBreeds(true)
+  const options = data ?? []
   const onChange = (
     event: SyntheticEvent<Element, Event>,
     newValue: string[] | undefined
