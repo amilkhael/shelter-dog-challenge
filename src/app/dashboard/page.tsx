@@ -26,7 +26,7 @@ const Dashboard = () => {
   }
 
   return (
-    <Container component='main' maxWidth='xl'>
+    <Container component='main' maxWidth='xl' style={{ paddingTop: 24 }}>
       <BreedFilter setCurrentBreed={setCurrentBreed} />
       <DogGrid params={params} setParams={setParams} />
     </Container>
