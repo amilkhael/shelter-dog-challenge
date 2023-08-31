@@ -4,6 +4,7 @@ import Container from "@mui/material/Container"
 import BreedFilter from "@components/BreedFilter/BreedFilter"
 import { SearchDogsParamsInterface } from "@api/searchingDogs/SearchDogsParamsInterface.interface"
 import DogGrid from "@components/DogGrid/DogGrid"
+import MatchDog from "@components/MatchDog/MatchDog"
 
 const Dashboard = () => {
   const [params, setParams] = useState<SearchDogsParamsInterface>({
@@ -27,6 +28,7 @@ const Dashboard = () => {
 
   return (
     <Container component='main' maxWidth='xl' style={{ paddingTop: 24 }}>
+      <MatchDog />
       <BreedFilter setCurrentBreed={setCurrentBreed} />
       <DogGrid params={params} setParams={setParams} />
     </Container>
