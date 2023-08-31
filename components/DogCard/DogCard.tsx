@@ -1,10 +1,24 @@
 import Card from "@mui/material/Card"
 import CardMedia from "@mui/material/CardMedia"
-import { Dog } from "@api/fetchDogsInformation/DogInterface.interface"
 import CardContent from "@mui/material/CardContent"
+import CardActions from "@mui/material/CardActions"
 import Typography from "@mui/material/Typography"
+import FormControlLabel from "@mui/material/FormControlLabel"
+import Checkbox from "@mui/material/Checkbox"
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder"
+import Favorite from "@mui/icons-material/Favorite"
+import { DogCard } from "./DogCardInterface.interface"
 
-const DogCard = ({ img, breed, name, zip_code: zipCode, age }: Dog): JSX.Element => (
+const DogCard = ({
+  img,
+  breed,
+  name,
+  zip_code: zipCode,
+  age,
+  handleDogSelection,
+  dogSelection,
+  id,
+}: DogCard): JSX.Element => (
   <Card sx={{ maxWidth: 345 }}>
     <CardMedia component='img' sx={{ height: 250 }} image={img} alt={breed} />
     <CardContent>
@@ -33,6 +47,20 @@ const DogCard = ({ img, breed, name, zip_code: zipCode, age }: Dog): JSX.Element
         </Typography>
       </Typography>
     </CardContent>
+    <CardActions disableSpacing>
+      <FormControlLabel
+        control={
+          <Checkbox
+            checked={dogSelection.includes(id)}
+            onChange={(event) => handleDogSelection(event, id)}
+            inputProps={{ "aria-label": "controlled" }}
+            icon={<FavoriteBorder />}
+            checkedIcon={<Favorite />}
+          />
+        }
+        label='Select this dog'
+      />
+    </CardActions>
   </Card>
 )
 

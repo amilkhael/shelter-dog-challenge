@@ -17,6 +17,7 @@ const DogGrid = ({
 }) => {
   const { isLoading, data } = useSearchingDogs(true, params)
   const [page, setPage] = useState(1)
+  const [dogSelection, setDogSelection] = useState<string[]>([])
   const total = data?.total ?? 0
   const itemsPerPage = params.size ?? 25
   const lastPage = Math.ceil(total / itemsPerPage)
@@ -44,6 +45,20 @@ const DogGrid = ({
       from: calculateFromValue(currentPage, prevParams.size),
     }))
   }
+
+  const handleDogSelection = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    dogId: string
+  ) => {
+    setDogSelection((prevDogSelection) => {
+      if (event.target.checked) {
+        return [...prevDogSelection, dogId]
+      } else {
+        return prevDogSelection.filter((id) => id !== dogId)
+      }
+    })
+  }
+
   if (isLoading)
     return (
       <Box
@@ -65,7 +80,11 @@ const DogGrid = ({
         <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8, md: 12 }}>
           {data?.dogs.map((data: Dog) => (
             <Grid xs={2} sm={4} md={4} key={data.id}>
-              <DogCard {...data} />
+              <DogCard
+                {...data}
+                handleDogSelection={handleDogSelection}
+                dogSelection={dogSelection}
+              />
             </Grid>
           ))}
         </Grid>
