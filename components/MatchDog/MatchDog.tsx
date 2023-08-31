@@ -1,25 +1,13 @@
 import React, { useEffect } from "react"
 import Button from "@mui/material/Button"
-import Dialog from "@mui/material/Dialog"
-import DialogContent from "@mui/material/DialogContent"
-import DialogContentText from "@mui/material/DialogContentText"
-import DialogTitle from "@mui/material/DialogTitle"
-import Slide from "@mui/material/Slide"
-import { TransitionProps } from "@mui/material/transitions"
 import { useMatchDog } from "@hooks/Dogs/useMatchDog"
+import DogMatched from "@components/DogMatched/DogMatched"
+import { MatchingDogResponse } from "@api/matchingDogs/MatchingDogResponse.interface"
 
-const Transition = React.forwardRef(function Transition(
-  props: TransitionProps & {
-    children: React.ReactElement<any, any>
-  },
-  ref: React.Ref<unknown>
-) {
-  return <Slide direction='up' ref={ref} {...props} />
-})
-
-const MatchDog = () => {
+const MatchDog = (): JSX.Element => {
   const [open, setOpen] = React.useState(false)
   const { data, mutate: matchDog, isSuccess } = useMatchDog()
+  const dogId = data as MatchingDogResponse
 
   useEffect(() => {
     if (isSuccess) {
@@ -27,6 +15,7 @@ const MatchDog = () => {
     }
   }, [isSuccess])
 
+  //TODO: Remove variable test
   const handleDogMatching = () => {
     const test = [
       "VXGFTIcBOvEgQ5OCx40W",
@@ -71,21 +60,7 @@ const MatchDog = () => {
       <Button variant='contained' onClick={handleDogMatching}>
         Match with your dog
       </Button>
-      <Dialog
-        open={open}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-describedby='alert-dialog-slide-description'
-      >
-        <DialogTitle>{"It's a Match"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id='alert-dialog-slide-description'>
-            Let Google help apps determine location. This means sending anonymous location
-            data to Google, even when no apps are running.
-          </DialogContentText>
-        </DialogContent>
-      </Dialog>
+      {data && <DogMatched open={open} dogId={dogId.match} handleClose={handleClose} />}
     </>
   )
 }
