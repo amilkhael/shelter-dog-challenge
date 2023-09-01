@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography"
 import Pagination from "@mui/material/Pagination"
 import { Dog } from "@api/fetchDogsInformation/DogInterface.interface"
 import { SearchDogsParamsInterface } from "@api/searchingDogs/SearchDogsParamsInterface.interface"
+import useSelectedDogsContext from "@hooks/Context/useSelectedDogsContext"
 
 const DogGrid = ({
   params,
@@ -17,7 +18,7 @@ const DogGrid = ({
 }) => {
   const { isLoading, data } = useSearchingDogs(true, params)
   const [page, setPage] = useState(1)
-  const [dogSelection, setDogSelection] = useState<string[]>([])
+  const { dogSelection, setDogSelection } = useSelectedDogsContext()
   const total = data?.total ?? 0
   const itemsPerPage = params.size ?? 25
   const lastPage = Math.ceil(total / itemsPerPage)
@@ -50,13 +51,18 @@ const DogGrid = ({
     event: React.ChangeEvent<HTMLInputElement>,
     dogId: string
   ) => {
-    setDogSelection((prevDogSelection) => {
+    if (event.target.checked) {
+      setDogSelection([...dogSelection, dogId])
+    } else {
+      setDogSelection(dogSelection.filter((id) => id !== dogId))
+    }
+    /* setDogSelection((prevDogSelection:string[]) => {
       if (event.target.checked) {
         return [...prevDogSelection, dogId]
       } else {
         return prevDogSelection.filter((id) => id !== dogId)
       }
-    })
+    })*/
   }
 
   if (isLoading)

@@ -1,6 +1,7 @@
 import Providers from "@utils/Providers"
 import "./globals.css"
 import type { Metadata } from "next"
+import { SelectedDogsProvider } from "@context/selectedDogs"
 
 export const metadata: Metadata = {
   title: "Shelter dogs",
@@ -11,7 +12,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body>
-        <Providers>{children}</Providers>
+        <SelectedDogsProvider>
+          <Providers>{children}</Providers>
+        </SelectedDogsProvider>
       </body>
     </html>
   )

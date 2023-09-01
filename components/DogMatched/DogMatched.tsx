@@ -34,6 +34,7 @@ const DogMatched = ({
         open={open && isSuccess}
         TransitionComponent={Transition}
         keepMounted
+        fullWidth
         onClose={handleClose}
         aria-describedby='alert-dialog-slide-description'
       >
