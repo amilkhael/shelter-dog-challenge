@@ -5,11 +5,13 @@ import BreedFilter from "@components/BreedFilter/BreedFilter"
 import { SearchDogsParamsInterface } from "@api/searchingDogs/SearchDogsParamsInterface.interface"
 import DogGrid from "@components/DogGrid/DogGrid"
 import MatchDog from "@components/MatchDog/MatchDog"
+import SortFieldFilter from "@components/SortFieldFilter/SortFieldFilter"
 
 const Dashboard = () => {
   const [params, setParams] = useState<SearchDogsParamsInterface>({
     from: 0,
     size: 25,
+    sort: "breed:asc",
   })
 
   const setCurrentBreed = (currentBreed: string[]) => {
@@ -30,6 +32,7 @@ const Dashboard = () => {
     <Container component='main' maxWidth='xl' style={{ paddingTop: 24 }}>
       <MatchDog />
       <BreedFilter setCurrentBreed={setCurrentBreed} />
+      <SortFieldFilter setParams={setParams} field='breed' />
       <DogGrid params={params} setParams={setParams} />
     </Container>
   )

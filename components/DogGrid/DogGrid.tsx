@@ -56,13 +56,6 @@ const DogGrid = ({
     } else {
       setDogSelection(dogSelection.filter((id) => id !== dogId))
     }
-    /* setDogSelection((prevDogSelection:string[]) => {
-      if (event.target.checked) {
-        return [...prevDogSelection, dogId]
-      } else {
-        return prevDogSelection.filter((id) => id !== dogId)
-      }
-    })*/
   }
 
   if (isLoading)
