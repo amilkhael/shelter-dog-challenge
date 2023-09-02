@@ -76,7 +76,11 @@ const DogGrid = ({
   return (
     <>
       <Box sx={{ flexGrow: 1, margin: "2rem 0" }}>
-        <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 1, sm: 8, md: 12 }}>
+        <Grid
+          container
+          spacing={{ xs: 2, md: 3 }}
+          columns={{ xs: 1, sm: 8, md: 12, lg: 16 }}
+        >
           {data?.dogs.map((data: Dog) => (
             <Grid xs={2} sm={4} md={4} key={data.id}>
               <DogCard

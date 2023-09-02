@@ -6,6 +6,7 @@ import { SearchDogsParamsInterface } from "@api/searchingDogs/SearchDogsParamsIn
 import DogGrid from "@components/DogGrid/DogGrid"
 import MatchDog from "@components/MatchDog/MatchDog"
 import SortFieldFilter from "@components/SortFieldFilter/SortFieldFilter"
+import Stack from "@mui/material/Stack"
 
 const Dashboard = () => {
   const [params, setParams] = useState<SearchDogsParamsInterface>({
@@ -30,9 +31,19 @@ const Dashboard = () => {
 
   return (
     <Container component='main' maxWidth='xl' style={{ paddingTop: 24 }}>
-      <MatchDog />
-      <BreedFilter setCurrentBreed={setCurrentBreed} />
-      <SortFieldFilter setParams={setParams} field='breed' />
+      <Stack
+        direction={{ xs: "column", sm: "row" }}
+        spacing={{ xs: 4 }}
+        justifyContent={"space-between"}
+        alignItems={{ xs: "flex-start", sm: "center" }}
+        flexWrap={"wrap"}
+      >
+        <Stack spacing={2}>
+          <BreedFilter setCurrentBreed={setCurrentBreed} />
+          <SortFieldFilter setParams={setParams} field='breed' />
+        </Stack>
+        <MatchDog />
+      </Stack>
       <DogGrid params={params} setParams={setParams} />
     </Container>
   )
