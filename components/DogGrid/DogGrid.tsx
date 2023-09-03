@@ -5,8 +5,8 @@ import Box from "@mui/material/Box"
 import DogCard from "@components/DogCard/DogCard"
 import Typography from "@mui/material/Typography"
 import Pagination from "@mui/material/Pagination"
-import { Dog } from "@api/fetchDogsInformation/DogInterface.interface"
-import { SearchDogsParamsInterface } from "@api/searchingDogs/SearchDogsParamsInterface.interface"
+import { Dog } from "@services/fetchDogsInformation/DogInterface.interface"
+import { SearchDogsParamsInterface } from "@services/searchingDogs/SearchDogsParamsInterface.interface"
 import useSelectedDogsContext from "@hooks/Context/useSelectedDogsContext"
 
 const DogGrid = ({

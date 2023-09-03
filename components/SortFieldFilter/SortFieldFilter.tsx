@@ -1,7 +1,7 @@
 import { useState, MouseEvent, Dispatch, SetStateAction } from "react"
 import ToggleButton from "@mui/material/ToggleButton"
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
-import { SearchDogsParamsInterface } from "@api/searchingDogs/SearchDogsParamsInterface.interface"
+import { SearchDogsParamsInterface } from "@services/searchingDogs/SearchDogsParamsInterface.interface"
 
 const SortFieldFilter = ({
   field,

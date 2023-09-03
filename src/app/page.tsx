@@ -6,7 +6,7 @@ import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import Container from "@mui/material/Container"
 import { useLogin } from "@hooks/Session/useLogIn"
-import { User } from "@api/login/User.type"
+import { User } from "@services/login/User.type"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 

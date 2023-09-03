@@ -1,4 +1,4 @@
-import { Get } from "@api/fetchData/fetchData"
+import { Get } from "@services/fetchData/fetchData"
 import { SearchDogsResponseInterface } from "./SearchDogsResponseInterface.interface"
 
 export const searchingDogs = (

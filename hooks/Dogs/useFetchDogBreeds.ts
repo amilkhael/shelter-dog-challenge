@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import { fetchDogBreeds } from "@api/fetchDogBreeds/fetchDogBreed"
+import { fetchDogBreeds } from "@services/fetchDogBreeds/fetchDogBreed"
 import { Provider } from "@models/Providers"
 import { dogActions } from "./Dogs.models"
 

@@ -1,4 +1,4 @@
-import { SearchConfigurationInterface } from "@api/SearchConfigurationInterface.interface"
+import { SearchConfigurationInterface } from "@services/SearchConfigurationInterface.interface"
 
 export interface SearchDogsParamsInterface extends SearchConfigurationInterface {
   breeds?: string[]

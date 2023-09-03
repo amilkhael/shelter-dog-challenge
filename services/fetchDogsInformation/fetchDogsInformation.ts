@@ -1,4 +1,4 @@
-import { Post } from "@api/fetchData/fetchData"
+import { Post } from "@services/fetchData/fetchData"
 import { Dog } from "./DogInterface.interface"
 
 export const fetchDogsInformation = (dogIds: string[]): Promise<Dog[]> => {

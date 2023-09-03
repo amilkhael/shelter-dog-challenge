@@ -1,5 +1,5 @@
 import { MutationFunction, useMutation } from "@tanstack/react-query"
-import { login } from "@api/login/login"
+import { login } from "@services/login/login"
 import { Provider } from "@models/Providers"
 import { sessionActions, Status } from "./Session.models"
 

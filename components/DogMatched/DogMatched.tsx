@@ -8,7 +8,7 @@ import Slide from "@mui/material/Slide"
 import { TransitionProps } from "@mui/material/transitions"
 import Typography from "@mui/material/Typography"
 import CardMedia from "@mui/material/CardMedia"
-import { Dog } from "@api/fetchDogsInformation/DogInterface.interface"
+import { Dog } from "@services/fetchDogsInformation/DogInterface.interface"
 import { DogMatchedInterface } from "./DogMatchedInterface.interface"
 
 const Transition = React.forwardRef(function Transition(

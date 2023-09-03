@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query"
-import { searchingDogs } from "@api/searchingDogs/searchingDogs"
+import { searchingDogs } from "@services/searchingDogs/searchingDogs"
 import { Provider } from "@models/Providers"
 import { dogActions } from "./Dogs.models"
-import { SearchDogsParamsInterface } from "@api/searchingDogs/SearchDogsParamsInterface.interface"
-import { fetchDogsInformation } from "@api/fetchDogsInformation/fetchDogsInformation"
-import { Dog } from "@api/fetchDogsInformation/DogInterface.interface"
+import { SearchDogsParamsInterface } from "@services/searchingDogs/SearchDogsParamsInterface.interface"
+import { fetchDogsInformation } from "@services/fetchDogsInformation/fetchDogsInformation"
+import { Dog } from "@services/fetchDogsInformation/DogInterface.interface"
 
 const getDataDogsInformation = async ({
   resultIds,

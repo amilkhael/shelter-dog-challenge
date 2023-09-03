@@ -1,4 +1,4 @@
-import { Get } from "@api/fetchData/fetchData"
+import { Get } from "@services/fetchData/fetchData"
 
 export const fetchDogBreeds = (): Promise<void | string[]> => {
   const endpoint = "/dogs/breeds"

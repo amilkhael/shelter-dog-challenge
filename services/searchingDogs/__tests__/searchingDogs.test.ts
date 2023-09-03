@@ -1,4 +1,4 @@
-import { API_URL } from "@api/constants"
+import { API_URL } from "@services/constants"
 import SearchDogData from "@data/SearchDogData.json"
 import { searchingDogs } from "../searchingDogs"
 

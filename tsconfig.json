@@ -21,7 +21,7 @@
     ],
     "paths": {
       "@components/*": ["./components/*"],
-      "@api/*": ["./api/*"],
+      "@services/*": ["./services/*"],
       "@context/*": ["./context/*"],
       "@hooks/*": ["./hooks/*"],
       "@data/*": ["./data/*"],

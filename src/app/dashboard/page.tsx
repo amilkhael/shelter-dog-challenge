@@ -2,7 +2,7 @@
 import { useState } from "react"
 import Container from "@mui/material/Container"
 import BreedFilter from "@components/BreedFilter/BreedFilter"
-import { SearchDogsParamsInterface } from "@api/searchingDogs/SearchDogsParamsInterface.interface"
+import { SearchDogsParamsInterface } from "@services/searchingDogs/SearchDogsParamsInterface.interface"
 import DogGrid from "@components/DogGrid/DogGrid"
 import MatchDog from "@components/MatchDog/MatchDog"
 import SortFieldFilter from "@components/SortFieldFilter/SortFieldFilter"

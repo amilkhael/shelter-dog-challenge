@@ -1,4 +1,4 @@
-import { API_URL } from "@api/constants"
+import { API_URL } from "@services/constants"
 import { login } from "../login"
 
 describe("Login", () => {

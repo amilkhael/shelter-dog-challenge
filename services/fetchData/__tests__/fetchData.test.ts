@@ -1,4 +1,4 @@
-import { API_URL } from "@api/constants"
+import { API_URL } from "@services/constants"
 import { Post, Get } from "../fetchData"
 import fetchMock from "jest-fetch-mock"
 

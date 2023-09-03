@@ -1,5 +1,5 @@
 import { MutationFunction, useMutation } from "@tanstack/react-query"
-import { matchingDogs } from "@api/matchingDogs/matchingDogs"
+import { matchingDogs } from "@services/matchingDogs/matchingDogs"
 import { Provider } from "@models/Providers"
 import { dogActions, Status } from "./Dogs.models"
 

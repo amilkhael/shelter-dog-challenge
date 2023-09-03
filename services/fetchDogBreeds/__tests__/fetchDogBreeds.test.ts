@@ -1,4 +1,4 @@
-import { API_URL } from "@api/constants"
+import { API_URL } from "@services/constants"
 import DogBreedsData from "@data/DogBreedsData.json"
 import { fetchDogBreeds } from "../fetchDogBreed"
 
