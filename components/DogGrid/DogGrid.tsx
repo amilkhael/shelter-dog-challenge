@@ -3,11 +3,11 @@ import { useSearchingDogs } from "@hooks/Dogs/useSearchingDogs"
 import Grid from "@mui/material/Unstable_Grid2"
 import Box from "@mui/material/Box"
 import DogCard from "@components/DogCard/DogCard"
-import Typography from "@mui/material/Typography"
 import Pagination from "@mui/material/Pagination"
 import { Dog } from "@services/fetchDogsInformation/DogInterface.interface"
 import { SearchDogsParamsInterface } from "@services/searchingDogs/SearchDogsParamsInterface.interface"
 import useSelectedDogsContext from "@hooks/Context/useSelectedDogsContext"
+import Loading from "@components/Loading/Loading"
 
 const DogGrid = ({
   params,
@@ -58,20 +58,7 @@ const DogGrid = ({
     }
   }
 
-  if (isLoading)
-    return (
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Typography variant='body1' color='text.primary'>
-          Loading...
-        </Typography>
-      </Box>
-    )
+  if (isLoading) return <Loading />
 
   return (
     <>
