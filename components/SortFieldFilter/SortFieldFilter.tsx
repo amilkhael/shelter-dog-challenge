@@ -1,4 +1,4 @@
-import { useState, MouseEvent } from "react"
+import { useState, MouseEvent, Dispatch, SetStateAction } from "react"
 import ToggleButton from "@mui/material/ToggleButton"
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup"
 import { SearchDogsParamsInterface } from "@api/searchingDogs/SearchDogsParamsInterface.interface"
@@ -8,7 +8,7 @@ const SortFieldFilter = ({
   setParams,
 }: {
   field: string
-  setParams: Function
+  setParams: Dispatch<SetStateAction<SearchDogsParamsInterface>>
 }) => {
   const [sortDirection, setSortDirection] = useState("asc")
 

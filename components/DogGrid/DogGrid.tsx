@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, Dispatch, SetStateAction } from "react"
 import { useSearchingDogs } from "@hooks/Dogs/useSearchingDogs"
 import Grid from "@mui/material/Unstable_Grid2"
 import Box from "@mui/material/Box"
@@ -14,8 +14,8 @@ const DogGrid = ({
   setParams,
 }: {
   params: SearchDogsParamsInterface
-  setParams: Function
-}) => {
+  setParams: Dispatch<SetStateAction<SearchDogsParamsInterface>>
+}): JSX.Element => {
   const { isLoading, data } = useSearchingDogs(true, params)
   const [page, setPage] = useState(1)
   const { dogSelection, setDogSelection } = useSelectedDogsContext()
@@ -23,7 +23,7 @@ const DogGrid = ({
   const itemsPerPage = params.size ?? 25
   const lastPage = Math.ceil(total / itemsPerPage)
 
-  useEffect(() => {
+  useEffect((): void => {
     setPage(1)
     setParams((prevParams: SearchDogsParamsInterface) => ({
       ...prevParams,
@@ -34,12 +34,12 @@ const DogGrid = ({
   const calculateFromValue = (
     currentPage: number,
     paramItemsPerPage: number | undefined
-  ) => {
+  ): number => {
     const itemsPerPage = paramItemsPerPage ?? 25
     return (currentPage - 1) * itemsPerPage
   }
 
-  const handleChange = (event: React.ChangeEvent<unknown>, currentPage: number) => {
+  const handleChange = (event: React.ChangeEvent<unknown>, currentPage: number): void => {
     setPage(currentPage)
     setParams((prevParams: SearchDogsParamsInterface) => ({
       ...prevParams,
@@ -50,7 +50,7 @@ const DogGrid = ({
   const handleDogSelection = (
     event: React.ChangeEvent<HTMLInputElement>,
     dogId: string
-  ) => {
+  ): void => {
     if (event.target.checked) {
       setDogSelection([...dogSelection, dogId])
     } else {

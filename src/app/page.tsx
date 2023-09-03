@@ -56,7 +56,6 @@ export default function LogIn() {
             type='text'
             id='name'
             autoComplete='name'
-            autoFocus
           />
           <TextField
             margin='normal'

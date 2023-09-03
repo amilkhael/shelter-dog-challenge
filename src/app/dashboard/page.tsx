@@ -23,8 +23,9 @@ const Dashboard = () => {
       }))
     } else {
       setParams((prevParams) => {
-        const { breeds, ...restParams } = prevParams
-        return restParams
+        const clonedParams = { ...prevParams }
+        delete clonedParams.breeds
+        return clonedParams
       })
     }
   }

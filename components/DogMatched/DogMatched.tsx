@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactElement } from "react"
 import Dialog from "@mui/material/Dialog"
 import DialogContent from "@mui/material/DialogContent"
 import DialogContentText from "@mui/material/DialogContentText"
@@ -13,7 +13,7 @@ import { DogMatchedInterface } from "./DogMatchedInterface.interface"
 
 const Transition = React.forwardRef(function Transition(
   props: TransitionProps & {
-    children: React.ReactElement<any, any>
+    children: ReactElement
   },
   ref: React.Ref<unknown>
 ) {
