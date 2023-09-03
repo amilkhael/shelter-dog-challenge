@@ -9,6 +9,7 @@ import { SearchDogsParamsInterface } from "@services/searchingDogs/SearchDogsPar
 import useSelectedDogsContext from "@hooks/Context/useSelectedDogsContext"
 import Loading from "@components/Loading/Loading"
 import ErrorDialog from "@components/ErrorDialog"
+import { Stack } from "@mui/material"
 
 const DogGrid = ({
   params,
@@ -84,7 +85,14 @@ const DogGrid = ({
           ))}
         </Grid>
       </Box>
-      <Pagination count={lastPage} page={page} onChange={handleChange} />
+      <Stack
+        justifyContent={"center"}
+        alignItems={"center"}
+        flexWrap={"wrap"}
+        marginTop={"2rem"}
+      >
+        <Pagination count={lastPage} page={page} onChange={handleChange} size='large' />
+      </Stack>
     </>
   )
 }
