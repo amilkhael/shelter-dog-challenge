@@ -8,6 +8,7 @@ import { Dog } from "@services/fetchDogsInformation/DogInterface.interface"
 import { SearchDogsParamsInterface } from "@services/searchingDogs/SearchDogsParamsInterface.interface"
 import useSelectedDogsContext from "@hooks/Context/useSelectedDogsContext"
 import Loading from "@components/Loading/Loading"
+import ErrorDialog from "@components/ErrorDialog"
 
 const DogGrid = ({
   params,
@@ -16,7 +17,7 @@ const DogGrid = ({
   params: SearchDogsParamsInterface
   setParams: Dispatch<SetStateAction<SearchDogsParamsInterface>>
 }): JSX.Element => {
-  const { isLoading, data } = useSearchingDogs(true, params)
+  const { isLoading, data, isError } = useSearchingDogs(true, params)
   const [page, setPage] = useState(1)
   const { dogSelection, setDogSelection } = useSelectedDogsContext()
   const total = data?.total ?? 0
@@ -57,8 +58,12 @@ const DogGrid = ({
       setDogSelection(dogSelection.filter((id) => id !== dogId))
     }
   }
-
+  if (isError) {
+    return <ErrorDialog isError={isError} />
+  }
   if (isLoading) return <Loading />
+
+  if (!data) return <p>No data</p>
 
   return (
     <>

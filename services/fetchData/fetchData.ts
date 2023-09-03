@@ -24,14 +24,20 @@ export const request = async <T>({
   return await fetch(url, requestOptions)
     .then((response) => {
       if (!response.ok) {
-        throw new Error(response.statusText)
+        switch (response.status) {
+          case 401:
+            throw new Error("Unauthorized")
+          default:
+            throw new Error(response.statusText)
+        }
       }
+      if (response.url.includes("/login")) return response.text() as Promise<T>
+
       return response.json() as Promise<T>
     })
     .then((data) => {
       return data
     })
-    .catch((error) => console.log("There was a problem!", error))
 }
 
 export const Get = <T>({
