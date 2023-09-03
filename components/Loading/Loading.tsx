@@ -13,7 +13,7 @@ const Loading = () => (
     }}
   >
     <Image
-      src='/static/loading/corgi-excited.gif'
+      src='/static/loading/corgi-excited.GIF'
       width={220}
       height={178}
       alt='Picture of the author'
