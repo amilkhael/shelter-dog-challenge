@@ -15,7 +15,8 @@
     "lint:js": "eslint \"./**/*.{js,jsx,ts,tsx}\"",
     "lint:next": "next lint",
     "lint:fix": "eslint \"./**/*.{js,jsx,ts,tsx}\" --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "vercel-build": "npm run prepare && npm run build"
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
