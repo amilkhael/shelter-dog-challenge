@@ -1,5 +1,5 @@
 import { Dog } from "@api/fetchDogsInformation/DogInterface.interface"
 export interface DogCard extends Dog {
-  handleDogSelection: Function
+  handleDogSelection: (event: React.ChangeEvent<HTMLInputElement>, dogId: string) => void
   dogSelection: string[]
 }

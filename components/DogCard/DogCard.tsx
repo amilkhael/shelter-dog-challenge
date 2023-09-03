@@ -52,7 +52,7 @@ const DogCard = ({
         control={
           <Checkbox
             checked={dogSelection.includes(id)}
-            onChange={(event) => handleDogSelection(event, id)}
+            onChange={(event): void => handleDogSelection(event, id)}
             inputProps={{ "aria-label": "controlled" }}
             icon={<FavoriteBorder />}
             checkedIcon={<Favorite />}

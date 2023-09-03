@@ -7,7 +7,7 @@ export const request = async <T>({
   endpoint,
   params,
   data,
-}: RequestInterface): Promise<void | T> => {
+}: RequestInterface<string, T>): Promise<void | T> => {
   const url = params ? `${API_URL}${endpoint}${params}` : `${API_URL}${endpoint}`
   const requestOptions: RequestInit = {
     method,
@@ -36,25 +36,25 @@ export const request = async <T>({
 
 export const Get = <T>({
   endpoint,
-  params = null,
-}: HttpRequestType): Promise<void | T> => {
-  const requestInformation: RequestInterface = {
+  params = undefined,
+}: HttpRequestType<string, T>): Promise<void | T> => {
+  const requestInformation: RequestInterface<string, T> = {
     method: "GET",
     endpoint,
     params,
-    data: null,
+    data: undefined,
   }
   return request<T>(requestInformation)
 }
 
 export const Post = <T>({
   endpoint,
-  data = null,
-}: HttpRequestType): Promise<void | T> => {
-  const requestInformation: RequestInterface = {
+  data,
+}: HttpRequestType<undefined, T>): Promise<void | T> => {
+  const requestInformation: RequestInterface<string, T> = {
     method: "POST",
     endpoint,
-    params: null,
+    params: undefined,
     data,
   }
   return request<T>(requestInformation)

@@ -1,6 +1,6 @@
-export interface RequestInterface {
+export interface RequestInterface<TParams, TData> {
   method: "POST" | "GET" | "PUT" | "DELETE"
   endpoint: string
-  params?: any
-  data?: any
+  params?: TParams
+  data?: TData
 }

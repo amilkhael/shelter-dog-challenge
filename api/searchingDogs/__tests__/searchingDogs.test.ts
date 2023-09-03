@@ -9,7 +9,7 @@ describe("Searching dogs", () => {
 
   it("returns a dog's id list", () => {
     fetchMock.mockResponseOnce(JSON.stringify(SearchDogData))
-    const dogsInformation = searchingDogs(null)
+    const dogsInformation = searchingDogs(undefined)
     expect(fetchMock.mock.calls.length).toEqual(1)
     expect(fetchMock.mock.calls[0][0]).toEqual(`${API_URL}/dogs/search`)
     dogsInformation.then((data) => {

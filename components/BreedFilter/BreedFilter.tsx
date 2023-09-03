@@ -3,13 +3,14 @@ import TextField from "@mui/material/TextField"
 import Autocomplete from "@mui/material/Autocomplete"
 import { useFetchDogBreeds } from "@hooks/Dogs/useFetchDogBreeds"
 
-const BreedFilter = ({ setCurrentBreed }: { setCurrentBreed: Function }): JSX.Element => {
+const BreedFilter = ({
+  setCurrentBreed,
+}: {
+  setCurrentBreed: (currentBreed: string[]) => void
+}): JSX.Element => {
   const { data } = useFetchDogBreeds(true)
   const options = data ?? []
-  const onChange = (
-    event: SyntheticEvent<Element, Event>,
-    newValue: string[] | undefined
-  ) => {
+  const onChange = (event: SyntheticEvent<Element, Event>, newValue: string[]): void => {
     setCurrentBreed(newValue)
   }
 
@@ -21,7 +22,7 @@ const BreedFilter = ({ setCurrentBreed }: { setCurrentBreed: Function }): JSX.El
       options={options}
       onChange={onChange}
       sx={{ width: 300 }}
-      renderInput={(params) => <TextField {...params} label='Breed' />}
+      renderInput={(params): JSX.Element => <TextField {...params} label='Breed' />}
     />
   )
 }

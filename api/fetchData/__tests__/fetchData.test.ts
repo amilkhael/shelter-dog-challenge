@@ -74,7 +74,7 @@ describe("Fetch", () => {
       data: string
     }
 
-    Post<TestRequest>({ endpoint: "/test", data: { test: "test" } }).then(
+    Post<TestRequest>({ endpoint: "/test", data: { data: "test" } }).then(
       (data) => data && expect(data).toEqual({ data: "12345" })
     )
 
