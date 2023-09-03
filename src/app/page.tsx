@@ -9,6 +9,7 @@ import { useLogin } from "@hooks/Session/useLogIn"
 import { User } from "@services/login/User.type"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
+import Image from "next/image"
 
 export default function LogIn() {
   const { mutate: login, isSuccess } = useLogin()
@@ -44,7 +45,12 @@ export default function LogIn() {
           gap: "1rem",
         }}
       >
-        <img src='dogs.png' alt='logo' />
+        <Image
+          src='https://firebasestorage.googleapis.com/v0/b/book-51d1c.appspot.com/o/dogs.png?alt=media&token=3ec8a36c-ba06-44f3-9708-3022a916ec64'
+          width={220}
+          height={178}
+          alt='Login image'
+        />
         <Typography component='h1' variant='h5'>
           Log in
         </Typography>

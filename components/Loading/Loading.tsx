@@ -13,10 +13,10 @@ const Loading = () => (
     }}
   >
     <Image
-      src='/static/loading/corgi-excited.GIF'
+      src='https://firebasestorage.googleapis.com/v0/b/book-51d1c.appspot.com/o/corgi-excited.gif?alt=media&token=d925d09b-3f30-4faf-b823-5112708dc913'
       width={220}
       height={178}
-      alt='Picture of the author'
+      alt='Loading image'
     />
     <Typography variant='body1' color='text.primary'>
       Loading...
