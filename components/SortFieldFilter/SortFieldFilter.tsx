@@ -9,10 +9,13 @@ const SortFieldFilter = ({
 }: {
   field: string
   setParams: Dispatch<SetStateAction<SearchDogsParamsInterface>>
-}) => {
+}): JSX.Element => {
   const [sortDirection, setSortDirection] = useState("asc")
 
-  const handleChange = (event: MouseEvent<HTMLElement>, newSortDirection: string) => {
+  const handleChange = (
+    event: MouseEvent<HTMLElement>,
+    newSortDirection: string
+  ): void => {
     setSortDirection(newSortDirection)
     setParams((prevParams: SearchDogsParamsInterface) => ({
       ...prevParams,

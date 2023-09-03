@@ -1,9 +1,11 @@
-import { useQuery } from "@tanstack/react-query"
+import { UseQueryResult, useQuery } from "@tanstack/react-query"
 import { fetchDogBreeds } from "@services/fetchDogBreeds/fetchDogBreed"
 import { Provider } from "@models/Providers"
 import { dogActions } from "./Dogs.models"
 
-export const useFetchDogBreeds = (enabled = false) =>
+export const useFetchDogBreeds = (
+  enabled = false
+): UseQueryResult<void | string[], unknown> =>
   useQuery({
     enabled,
     queryFn: fetchDogBreeds,

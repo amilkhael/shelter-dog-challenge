@@ -11,21 +11,21 @@ const MatchDog = (): JSX.Element => {
   const { dogSelection } = useSelectedDogsContext()
   const dogId = data as MatchingDogResponse
 
-  useEffect(() => {
+  useEffect((): void => {
     if (isSuccess) {
       handleOpen()
     }
   }, [isSuccess])
 
-  const handleDogMatching = () => {
+  const handleDogMatching = (): void => {
     matchDog(dogSelection)
   }
 
-  const handleOpen = () => {
+  const handleOpen = (): void => {
     setOpen(true)
   }
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setOpen(false)
   }
 

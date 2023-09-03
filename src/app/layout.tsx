@@ -9,7 +9,11 @@ export const metadata: Metadata = {
   description: "Adopt Shelter dogs",
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}): JSX.Element {
   return (
     <html lang='en'>
       <body>

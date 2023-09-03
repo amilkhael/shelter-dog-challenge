@@ -8,14 +8,14 @@ import MatchDog from "@components/MatchDog/MatchDog"
 import SortFieldFilter from "@components/SortFieldFilter/SortFieldFilter"
 import Stack from "@mui/material/Stack"
 
-const Dashboard = () => {
+const Dashboard = (): JSX.Element => {
   const [params, setParams] = useState<SearchDogsParamsInterface>({
     from: 0,
     size: 25,
     sort: "breed:asc",
   })
 
-  const setCurrentBreed = (currentBreed: string[]) => {
+  const setCurrentBreed = (currentBreed: string[]): void => {
     if (currentBreed.length > 0) {
       setParams((prevParams) => ({
         ...prevParams,

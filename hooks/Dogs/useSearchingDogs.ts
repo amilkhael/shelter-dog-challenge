@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query"
+import { UseQueryResult, useQuery } from "@tanstack/react-query"
 import { searchingDogs } from "@services/searchingDogs/searchingDogs"
 import { Provider } from "@models/Providers"
 import { dogActions } from "./Dogs.models"
@@ -15,7 +15,16 @@ const getDataDogsInformation = async ({
 }): Promise<{ dogs: Dog[]; total: number }> =>
   await fetchDogsInformation(resultIds).then((data) => ({ dogs: data, total }))
 
-export const useSearchingDogs = (enabled = false, params: SearchDogsParamsInterface) => {
+export const useSearchingDogs = (
+  enabled = false,
+  params: SearchDogsParamsInterface
+): UseQueryResult<
+  {
+    dogs: Dog[]
+    total: number
+  },
+  unknown
+> => {
   const formatParams = () => {
     let formattedParams = "?"
     if (params) {

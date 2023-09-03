@@ -11,7 +11,7 @@ const ErrorDialog = ({ isError }: { isError: boolean }): JSX.Element => {
   const [open, setOpen] = useState<boolean>(isError)
   const router = useRouter()
 
-  const handleClose = () => {
+  const handleClose = (): void => {
     setOpen(false)
     router.push("/")
   }

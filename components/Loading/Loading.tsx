@@ -2,7 +2,7 @@ import Box from "@mui/material/Box"
 import Typography from "@mui/material/Typography"
 import { CardMedia } from "@mui/material"
 
-const Loading = () => (
+const Loading = (): JSX.Element => (
   <Box
     sx={{
       display: "flex",

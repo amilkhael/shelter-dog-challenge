@@ -11,17 +11,17 @@ import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 import { CardMedia } from "@mui/material"
 
-export default function LogIn() {
+export default function LogIn(): JSX.Element {
   const { mutate: login, isSuccess } = useLogin()
   const router = useRouter()
 
-  useEffect(() => {
+  useEffect((): void => {
     if (isSuccess) {
       router.push("dashboard")
     }
   }, [isSuccess])
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
     if (data) {

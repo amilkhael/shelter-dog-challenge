@@ -4,7 +4,7 @@ import React from "react"
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query"
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
-function Providers({ children }: React.PropsWithChildren) {
+function Providers({ children }: React.PropsWithChildren): JSX.Element {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
