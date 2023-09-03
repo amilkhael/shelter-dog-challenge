@@ -9,6 +9,7 @@ import { useLogin } from "@hooks/Session/useLogIn"
 import { User } from "@services/login/User.type"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
+import Image from "next/image"
 
 export default function LogIn() {
   const { mutate: login, isSuccess } = useLogin()
@@ -37,12 +38,14 @@ export default function LogIn() {
     <Container component='main' maxWidth='xs'>
       <Box
         sx={{
-          marginTop: 8,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
+          justifyContent: "center",
+          gap: "1rem",
         }}
       >
+        <Image src='/login/dogs.png' alt='logo' width={280} height={280} />
         <Typography component='h1' variant='h5'>
           Log in
         </Typography>
