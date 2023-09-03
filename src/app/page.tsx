@@ -45,7 +45,7 @@ export default function LogIn() {
           gap: "1rem",
         }}
       >
-        <Image src='/login/dogs.png' alt='logo' width={280} height={280} />
+        <Image src='/static/login/dogs.png' alt='logo' width={280} height={280} />
         <Typography component='h1' variant='h5'>
           Log in
         </Typography>
