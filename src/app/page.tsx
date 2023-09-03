@@ -9,7 +9,6 @@ import { useLogin } from "@hooks/Session/useLogIn"
 import { User } from "@services/login/User.type"
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
-import Image from "next/image"
 
 export default function LogIn() {
   const { mutate: login, isSuccess } = useLogin()
@@ -45,7 +44,7 @@ export default function LogIn() {
           gap: "1rem",
         }}
       >
-        <Image src='/static/login/dogs.PNG' alt='logo' width={280} height={280} />
+        <img src='/static/login/dogs.PNG' alt='logo' />
         <Typography component='h1' variant='h5'>
           Log in
         </Typography>
