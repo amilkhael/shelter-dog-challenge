@@ -4,7 +4,7 @@ import { Provider } from "@models/Providers"
 import { dogActions, Status } from "./Dogs.models"
 
 export const useMatchDog = () => {
-  let mutationInterface = useMutation(matchingDogs as MutationFunction, {
+  const mutationInterface = useMutation(matchingDogs as MutationFunction, {
     mutationKey: [Provider.SHELTER_LOGIN, dogActions.MATCH],
   })
 
