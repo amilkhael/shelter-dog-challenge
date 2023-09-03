@@ -1,7 +1,6 @@
 import { API_URL } from "@services/constants"
 import { Post, Get } from "../fetchData"
 import fetchMock from "jest-fetch-mock"
-import { error } from "console"
 
 describe("Fetch", () => {
   beforeEach(() => {

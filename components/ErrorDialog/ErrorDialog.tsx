@@ -29,9 +29,7 @@ const ErrorDialog = ({ isError }: { isError: boolean }): JSX.Element => {
         </DialogContentText>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} autoFocus>
-          Go to Login
-        </Button>
+        <Button onClick={handleClose}>Go to Login</Button>
       </DialogActions>
     </Dialog>
   )
