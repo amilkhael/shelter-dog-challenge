@@ -1,6 +1,6 @@
 import Box from "@mui/material/Box"
-import Image from "next/image"
 import Typography from "@mui/material/Typography"
+import { CardMedia } from "@mui/material"
 
 const Loading = () => (
   <Box
@@ -12,10 +12,9 @@ const Loading = () => (
       gap: "1rem",
     }}
   >
-    <Image
-      src='https://firebasestorage.googleapis.com/v0/b/book-51d1c.appspot.com/o/corgi-excited.gif?alt=media&token=d925d09b-3f30-4faf-b823-5112708dc913'
-      width={220}
-      height={178}
+    <CardMedia
+      component='img'
+      image='https://firebasestorage.googleapis.com/v0/b/book-51d1c.appspot.com/o/corgi-excited.gif?alt=media&token=d925d09b-3f30-4faf-b823-5112708dc913'
       alt='Loading image'
     />
     <Typography variant='body1' color='text.primary'>
