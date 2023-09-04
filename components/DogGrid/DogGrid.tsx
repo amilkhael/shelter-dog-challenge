@@ -9,7 +9,7 @@ import { SearchDogsParamsInterface } from "@services/searchingDogs/SearchDogsPar
 import useSelectedDogsContext from "@hooks/Context/useSelectedDogsContext"
 import Loading from "@components/Loading/Loading"
 import ErrorDialog from "@components/ErrorDialog"
-import { Stack } from "@mui/material"
+import { Stack, Typography } from "@mui/material"
 
 const DogGrid = ({
   params,
@@ -64,7 +64,12 @@ const DogGrid = ({
   }
   if (isLoading) return <Loading />
 
-  if (!data) return <p>No data</p>
+  if (!data)
+    return (
+      <Typography variant='body1' color='text.primary' align='center'>
+        No data
+      </Typography>
+    )
 
   return (
     <>
