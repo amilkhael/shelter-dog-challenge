@@ -7,6 +7,7 @@ import DogGrid from "@components/DogGrid/DogGrid"
 import MatchDog from "@components/MatchDog/MatchDog"
 import SortFieldFilter from "@components/SortFieldFilter/SortFieldFilter"
 import Stack from "@mui/material/Stack"
+import { Typography } from "@mui/material"
 
 const Dashboard = (): JSX.Element => {
   const [params, setParams] = useState<SearchDogsParamsInterface>({
@@ -44,6 +45,16 @@ const Dashboard = (): JSX.Element => {
           <SortFieldFilter setParams={setParams} field='breed' />
         </Stack>
         <MatchDog />
+      </Stack>
+      <Stack marginTop='3rem'>
+        <Typography variant='body1' color='text.primary'>
+          Welcome, we love dogs, and hope you do too! Here you will find lovely shelter
+          dogs, with the hope of finding a lucky dog a new home!
+        </Typography>
+        <Typography variant='body1' color='text.primary'>
+          Make their wish true and choose your favorites to discover which one matches
+          with you.
+        </Typography>
       </Stack>
       <DogGrid params={params} setParams={setParams} />
     </Container>
