@@ -12,6 +12,7 @@ export const request = async <T>({
   const requestOptions: RequestInit = {
     method,
     credentials: "include",
+    cache: "no-store",
     headers: {
       "Content-Type": "application/json",
     },
