@@ -95,6 +95,7 @@ const DogGrid = ({
         alignItems={"center"}
         flexWrap={"wrap"}
         marginTop={"2rem"}
+        paddingBottom={"2rem"}
       >
         <Pagination count={lastPage} page={page} onChange={handleChange} size='large' />
       </Stack>
